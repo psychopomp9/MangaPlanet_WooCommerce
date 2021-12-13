@@ -9,13 +9,13 @@ Version: 1.0.0
 function contactN(){
     $time = date('H');
     $contact = 4374433003;
-    if($time >= 7 && $time < 20){
+    if($time >= 7 && $time < 20){ ///business hours from 7 A.M. to 8 P.M. 
         $contact = 4373344004;
     }
-    echo "Contact: $contact";
+    echo "<h3>Contact: $contact </h3>";
 }
 
-add_action('wp_footer', 'contactN');
+add_action('woocommerce_after_main_content', 'contactN');
 
 //check if there are items in cart and put notice on store and item pages if there are
 function cart_item(){
@@ -36,8 +36,7 @@ function cart_page(){
             wc_print_notice("Add $ $free_shipping worth items to enjoy free shipping!", 'notice');
         }else{
             wc_print_notice('Your shipping charges on us, enjoy!', 'success');
-        }
-        
+        }  
     }
 }
 
